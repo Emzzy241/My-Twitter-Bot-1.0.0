@@ -38,6 +38,8 @@ class Program
                 Console.WriteLine("Enter 'C' to continue, and to Exit App; Enter 'K'");
 
                 string userContinue = Console.ReadLine().ToUpper();
+                Console.WriteLine();
+                Console.WriteLine();
 
                 switch (userContinue)
                 {
@@ -77,15 +79,16 @@ class Program
                                 Console.WriteLine("Tweet has been successfully added to your Twiter feed");
 
 
-                                Console.WriteLine("Would you like to enter another Tweet? Enter 'Y' for Yes and 'N' for No");
+                                Console.WriteLine("Would you like to enter another Tweet? Enter 'Y' for Yes and 'N' for No.");
                                 Console.WriteLine("To Delete any Tweet, Enter 'D' to delete the one of your choice. To See all Tweets stored, enter 'S'");
 
                                 string userAction1 = Console.ReadLine().ToUpper();
 
                                 switch (userAction1)
                                 {
-                                    case "T":
-                                        Console.WriteLine("You enterred 'T' for Tweet; Enter the Tweet you want to Add to your Feed");
+                                    // If user inputs in an Y for a Yes
+                                    case "Y":
+                                        Console.WriteLine("You enterred 'Y' for a Yes to upload a Tweet; Enter the Tweet you want to Add to your Feed");
 
                                         string userTweet2 = Console.ReadLine();
                                         tweetDictionary.Add(2, userTweet2);
@@ -108,8 +111,8 @@ class Program
                                             case "T":
                                                 Console.WriteLine("You enterred 'T' for Tweet; Enter the Tweet you want to Add to your Feed");
 
-                                                string userTweet2 = Console.ReadLine();
-                                                tweetDictionary.Add(2, userTweet2);
+                                                string userTweet3 = Console.ReadLine();
+                                                tweetDictionary.Add(3, userTweet3);
                                                 Console.WriteLine();
                                                 Console.WriteLine();
 
@@ -124,6 +127,14 @@ class Program
 
                                         break;
 
+                                    // If user inputs in an N for a No
+                                    case "N":
+                                        Console.WriteLine("You enterred 'N' for a No to upload a Tweet; Enter the Tweet you want to Add to your Feed");
+                                        Console.WriteLine($"Goodbye {userName}");
+                                        break;
+
+                                    // If user inputs in an D to Delete Any of User's Tweet
+
                                     case "D":
                                         Console.WriteLine($"Total Tweets on {userName}'s Feed are: ");
                                         // A forloop on my tweetDictionary that displays all Tweets
@@ -131,7 +142,7 @@ class Program
                                         for (int i = 0; i < tweetDictionary.Count; i++)
                                         {
                                             KeyValuePair<int, string> eachTweet = tweetDictionary.ElementAt(i);
-                                            Console.WriteLine($"You added the Tweet: {eachTweet.Value}, Zana says it was your number : {eachTweet.Key} Tweet");
+                                            Console.WriteLine($"You added the Tweet: {eachTweet.Value}, Zana says it was your number {eachTweet.Key} Tweet");
 
                                         }
                                         Console.WriteLine();
@@ -151,7 +162,7 @@ class Program
 
                                                 foreach (KeyValuePair<int, string> eachRemainingTweet in tweetDictionary)
                                                 {
-                                                    Console.WriteLine($"You added the Tweet: {eachRemainingTweet.Value}, Zana says it was your number : {eachRemainingTweet.Key} Tweet");
+                                                    Console.WriteLine($"You added the Tweet: {eachRemainingTweet.Value}, Zana says it was your number {eachRemainingTweet.Key} Tweet");
 
                                                 }
                                                 break;
@@ -164,19 +175,27 @@ class Program
                                                 break;
                                         }
                                         break;
+
+                                    case "S":
+                                        foreach (KeyValuePair<int, string> eachRemainingTweet in tweetDictionary)
+                                        {
+                                            Console.WriteLine($"You added the Tweet: {eachRemainingTweet.Value}, Zana says it was your number {eachRemainingTweet.Key} Tweet");
+
+                                        }
+
+                                        break;
+
                                 }
                                 break;
 
-                            case "S":
-                                Console.WriteLine($"Total Tweets on {userName}'s Feed are: ");
-                                // A forloop on my tweetDictionary that displays all Tweets
-                                // using the .Count property that works with Lists and Dictionaries(and it helps to count each index Present n a Dictionary or a List)
-                                for (int i = 0; i < tweetDictionary.Count; i++)
-                                {
-                                    KeyValuePair<int, string> eachTweet = tweetDictionary.ElementAt(i);
-                                    Console.WriteLine($"You added the Tweet: '{eachTweet.Value}', Zana says it was your number {eachTweet.Key} Tweet");
+                            case 2:
+                                Console.WriteLine("Here are the Top 3 most read Articles for Today");
 
-                                }
+                                // Later on I would be adding a randomizer that would be helping randomize all these tweets everytime user runs application again
+
+                                Console.WriteLine("1. Harry Potter the mighty Wizardry");
+                                Console.WriteLine("2. A Buy named Dynasty has built the next Unicorn");
+                                Console.WriteLine("3. Chris Rock slaps Will Smith's Wife");
                                 break;
 
                             default:
@@ -188,16 +207,7 @@ class Program
 
                         break;
 
-                    case 2:
-                        Console.WriteLine("Here are the Top 3 most read Articles for Today");
 
-                        // Later on I would be adding a randomizer that would be helping randomize all these tweets everytime user runs application again
-
-                        Console.WriteLine("1. Harry Potter the mighty Wizardry");
-                        Console.WriteLine("2. A Buy named Dynasty has built the next Unicorn");
-                        Console.WriteLine("3. Chris Rock slaps Will Smith's Wife");
-
-                        break;
 
                     default:
                         // when user inputs a value that Zana cannot understand, I tell Zana to take my User to the case "Y" which is a parent case to this present switch-statement(userContinue)
@@ -207,22 +217,13 @@ class Program
                 }
                 break;
 
-            default:
-                break;
-        
-
-    
-
-
-
-
-        break;
+            // break;
             case "N":
                 Console.WriteLine("Goodbye My Dear User");
-        break;
-        default:
                 break;
-    }
+            default:
+                break;
+        }
 
 
     }
