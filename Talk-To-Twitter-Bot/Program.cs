@@ -79,8 +79,8 @@ class Program
                                 Console.WriteLine("Tweet has been successfully added to your Twiter feed");
 
 
-                                Console.WriteLine("Would you like to enter another Tweet? Enter 'Y' for Yes and 'N' for No.");
-                                Console.WriteLine("To Delete any Tweet, Enter 'D' to delete the one of your choice. To See all Tweets stored, enter 'S'");
+                                Console.WriteLine("Would you like to upload another Tweet? Enter 'Y' for Yes and 'N' for No.");
+                                Console.WriteLine("To Delete any Tweet, Enter 'D' to delete any Tweet of your choice. To See all Tweets on your Timeline, enter 'S'");
 
                                 string userAction1 = Console.ReadLine().ToUpper();
 
@@ -99,8 +99,8 @@ class Program
 
 
 
-                                        Console.WriteLine("Would you like to enter another Tweet? Enter 'Y' for Yes and 'N' for No");
-                                        Console.WriteLine("To Delete any Tweet, Enter 'D' to delete the one of your choice. To See all Tweets stored, enter 'S'");
+                                        Console.WriteLine("Would you like to upload another Tweet? Enter 'Y' for Yes and 'N' for No");
+                                        Console.WriteLine("To Delete any Tweet, Enter 'D' to delete any Tweet of your choice. To See all Tweets on your Timeline, enter 'S'");
 
                                         string userAction2 = Console.ReadLine().ToUpper();
 
@@ -108,8 +108,8 @@ class Program
 
                                         switch (userAction2)
                                         {
-                                            case "T":
-                                                Console.WriteLine("You enterred 'T' for Tweet; Enter the Tweet you want to Add to your Feed");
+                                            case "Y":
+                                                Console.WriteLine("You enterred 'Y' for a Yes to upload a Tweet; Enter the Tweet you want to Add to your Feed");
 
                                                 string userTweet3 = Console.ReadLine();
                                                 tweetDictionary.Add(3, userTweet3);
@@ -136,6 +136,8 @@ class Program
                                     // If user inputs in an D to Delete Any of User's Tweet
 
                                     case "D":
+                                        Console.WriteLine();
+                                        Console.WriteLine();
                                         Console.WriteLine($"Total Tweets on {userName}'s Feed are: ");
                                         // A forloop on my tweetDictionary that displays all Tweets
                                         // using the .Count property that works with Lists and Dictionaries(and it helps to count each index Present n a Dictionary or a List)
@@ -149,34 +151,73 @@ class Program
                                         Console.WriteLine();
                                         Console.WriteLine("Enter the tweet Number you would like to delete");
                                         string deleteTweet1 = Console.ReadLine();
+                                        // My Dictionary's key is in integers, I need to convert the string COnsole.ReadLine() gives me to integers
+                                        int deleteTweet1Int = int.Parse(deleteTweet1);
+                                        tweetDictionary.Remove(deleteTweet1Int);
+                                        Console.WriteLine($"Tweet with Number {deleteTweet1Int} has been deleted");
 
                                         Console.WriteLine();
                                         Console.WriteLine("Enter 'C' to continue or 'k' to go back to Zana's Main Menu");
-                                        string afterDeletingTweetContinue = Console.ReadLine();
+                                        string afterDeletingTweetContinue = Console.ReadLine().ToUpper();
                                         switch (afterDeletingTweetContinue)
                                         {
                                             case "C":
 
                                                 // I used foreach loop to show user's each remaining Tweet; you can also use a forloop only if you want to
-                                                Console.WriteLine($"Here are {userName}'s Remaining Tweets:");
+                                                Console.WriteLine($"{userName}, There are no more Tweets, Enter 'M' to go back to Main Menu, or Enter 'Q' to Quit Application");
+                                                string afterUserDeletesTweet = Console.ReadLine().ToUpper();
 
-                                                foreach (KeyValuePair<int, string> eachRemainingTweet in tweetDictionary)
+                                                switch (afterUserDeletesTweet)
                                                 {
-                                                    Console.WriteLine($"You added the Tweet: {eachRemainingTweet.Value}, Zana says it was your number {eachRemainingTweet.Key} Tweet");
+                                                    case "M":
+                                                        Main();
+                                                        break;
 
+                                                    case "Q":
+                                                        Console.WriteLine($"Goodbye {userName}");
+                                                        break;
+
+                                                    default:
+                                                        Console.WriteLine($"Dear {userName} Zana didn't get that, Please Try again");
+                                                        Main();
+                                                        break;
                                                 }
+
+                                                // Console.WriteLine("Would you like to Delete another Tweet?");
+                                                // Console.WriteLine("Enter 'Y' for a Yes and 'N' for a No");
+
+                                                // string afterDeletingTweetContinue2 = Console.ReadLine();
+
+                                                // switch (afterDeletingTweetContinue2)
+                                                // {
+                                                //     case "Y":
+                                                //         Console.WriteLine("Input the Tweet Number you would like to delete");
+                                                //         string deleteTweet2 = Console.ReadLine();
+                                                //         int deleteTweet2Int = int.Parse(deleteTweet2);
+                                                //         tweetDictionary.Remove(deleteTweet2Int);
+                                                //         break;
+
+                                                //     default:
+                                                //     break;
+                                                // }
+
                                                 break;
                                             case "K":
-                                                Console.WriteLine($"Goodbye {userName}");
+                                                Console.WriteLine("Going to the Main Menu..........");
+                                                Main();
                                                 break;
 
                                             default:
                                                 Console.WriteLine($"Dear {userName} Zana didn't get that, Please Try again");
+                                                Main();
                                                 break;
                                         }
                                         break;
 
                                     case "S":
+                                        Console.WriteLine();
+                                        Console.WriteLine();
+                                        Console.WriteLine("Here are all your Tweets");
                                         foreach (KeyValuePair<int, string> eachRemainingTweet in tweetDictionary)
                                         {
                                             Console.WriteLine($"You added the Tweet: {eachRemainingTweet.Value}, Zana says it was your number {eachRemainingTweet.Key} Tweet");
