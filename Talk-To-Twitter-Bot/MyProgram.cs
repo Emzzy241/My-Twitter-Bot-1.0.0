@@ -55,7 +55,7 @@ class MyProgram
 
                 if (myUserAnswerInt == 1)
                 {
-                    Console.WriteLine($"Dear {myUserName}, Enter the Tweet you want to add to your Timeline");
+                    Console.WriteLine($"Dear {myUserName}, Enter the first Tweet you want to add to your Timeline");
                     string myUserFirstTweet = Console.ReadLine();
 
                     Console.WriteLine();
@@ -71,9 +71,10 @@ class MyProgram
                     Console.WriteLine("NOTE: To add in a more tweets Enter'Y', to see all Tweets on Timeline enter 'S', To delete tweets, simply enter 'D'");
                     string myUserAnswer2 = Console.ReadLine().ToUpper();
 
+                    // If my user wants to add in another tweet
                     if (myUserAnswer2 == "Y")
                     {
-                        Console.WriteLine("What is the next Tweet you want to add");
+                        Console.WriteLine($"Dear {myUserName}, Enter the second Tweet you want to add to your Timeline");
                         string myUserSecondTweet = Console.ReadLine();
                         Console.WriteLine();
                         Console.WriteLine();
@@ -88,12 +89,36 @@ class MyProgram
 
                         if (myUserAnswer3 == "Y")
                         {
+                            Console.WriteLine($"Dear {myUserName}, Enter the third Tweet you want to add to your Timeline");
+                            string myUserThirdTweet = Console.ReadLine();
+                            Console.WriteLine();
+                            Console.WriteLine();
+
+                            tweetDictionary.Add(3, myUserSecondTweet);
+
+                            Console.WriteLine("Tweet has been successfully added to your Twiter feed");
+                            Console.WriteLine();
+
+                            Console.WriteLine("NOTE: To add in more tweets Enter'Y', to see all Tweets on Timeline enter 'S', To delete tweets, simply enter 'D', to Quit App; enter 'N'");
+                            string myUserAnswer4 = Console.ReadLine().ToUpper();
+
+
 
                         }
+                        else if(myUserAnswer3 == "N")
+                        {
+                            Console.WriteLine($"Goodbye {myUserName}");
+                        }
+
+
+
+
+
                         else if (myUserAnswer3 == "N")
                         {
                             Console.WriteLine($"Goodbye {myUserName}");
                         }
+
                         else if (myUserAnswer3 == "S")
                         {
                             Console.WriteLine($"Here are all the Tweets Present in {myUserName}'s Timeline");
@@ -132,6 +157,94 @@ class MyProgram
                         }
                         else if (myUserAnswer3 == "D")
                         {
+                            // showing user all of his tweets with a forloop before I now proceed with asking them which tweet he wants to delete
+                            Console.WriteLine("Here are all of your tweets");
+                            // This is the delete feature; Here I would be needing my looping also because I would be showing my users the left over value
+                            for (int index = 0; index < tweetDictionary.Count; index++)
+                            {
+                                // Working with the KeyValuePair object to ensure my looping workds
+                                // And at the top I have added a using System.Linq(and this will make me able to use the .ElementAt() methodt that is very keen when working with forloop's)
+                                // The .ElementAt() is a method and only parenthesis should be added to it and not square brackets
+                                KeyValuePair<int, string> forEveryTweet = tweetDictionary.ElementAt(index);
+                                Console.WriteLine($"{myUserName} added the Tweet: '{forEveryTweet.Value}', Zana says it was your number {forEveryTweet.Key} Tweet");
+
+                            }
+
+                            Console.WriteLine("Enter the Tweet Number you want to delete");
+                            string deleteTweetFirstTimeAfterSecondTweetAdded = Console.ReadLine();
+                            int deleteTweetFirstTimeAfterSecondTweetAddedInt = int.Parse(deleteTweetFirstTimeAfterSecondTweetAdded);
+
+                            tweetDictionary.Remove(deleteTweetFirstTimeAfterSecondTweetAddedInt);
+                            Console.WriteLine($"The Tweet with Number {deleteTweetFirstTimeAfterSecondTweetAddedInt} has been deleted");
+
+                            Console.WriteLine();
+                            Console.WriteLine();
+
+                            Console.WriteLine($"{myUserName}'s remaining Tweets are: ");
+                            Console.WriteLine();
+                            for (int index = 0; index < tweetDictionary.Count; index++)
+                            {
+                                KeyValuePair<int, string> forEveryTweet = tweetDictionary.ElementAt(index);
+                                Console.WriteLine($"{myUserName} added the Tweet: '{forEveryTweet.Value}', Zana says it was your number {forEveryTweet.Key} Tweet");
+                            }
+
+                            Console.WriteLine("Enter 'G' If you would like to delete another Tweet or Enter 'C' to quit the Application");
+
+                            string deleteTweetSecondTimeAfterSecondTweetAdded = Console.ReadLine().ToUpper();
+
+                            if (deleteTweetSecondTimeAfterSecondTweetAdded == "G")
+                            {
+
+                                Console.WriteLine("Enter the Tweet Number you want to delete");
+                                string secondTweetToDelete = Console.ReadLine();
+                                int secondTweetToDeleteInt = int.Parse(deleteTweetFirstTimeAfterSecondTweetAdded);
+
+                                // Deleting a second tweet for my user after the first one has been deleted
+                                tweetDictionary.Remove(secondTweetToDeleteInt);
+                                Console.WriteLine($"The Tweet with Number {deleteTweetFirstTimeAfterSecondTweetAddedInt} has been deleted");
+
+                                Console.WriteLine();
+                                Console.WriteLine();
+
+
+                                Console.WriteLine($"{myUserName} There are no more Tweets, Enter 'B' If you would like to go back to Main Menu or Enter 'F' to exit Application");
+
+                                string userContinueAfterDeletingSecondTweet = Console.ReadLine().ToUpper();
+
+                                if (userContinueAfterDeletingSecondTweet == "B")
+                                {
+                                    Console.WriteLine();
+                                    Console.WriteLine();
+                                    // Calling my Main() method entry-point that takes my user to the start of my Application
+                                    Main();
+                                }
+                                else if (userContinueAfterDeletingSecondTweet == "F")
+                                {
+                                    Console.WriteLine();
+                                    Console.WriteLine();
+                                    Console.WriteLine($"Goodbye {myUserName}");
+                                }
+                                else
+                                {
+                                    Console.WriteLine();
+                                    Console.WriteLine();
+                                    Console.WriteLine($"Sorry {myUserName}, Zana didn't get that");
+                                    Main();
+                                }
+                            }
+                            else if (deleteTweetSecondTimeAfterSecondTweetAdded == "C")
+                            {
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.WriteLine($"Goodbye {myUserName}");
+                            }
+                            else
+                            {
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.WriteLine($"Sorry {myUserName}, Zana didn't get that");
+                                Main();
+                            }
 
                         }
 
