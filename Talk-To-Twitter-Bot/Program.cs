@@ -1,3 +1,4 @@
+// I used switch-case statements to achieve my goals in this App
 // THis is not the Final version for the Bot App
 // Here are a few things I hope to inculcate into this App in other Future Versions
 // * Bot must be able to:
@@ -8,7 +9,7 @@
 // * Create a timer bot that responsds to every time interval sent to it with a reply when that time interval is up
 // And many more amazing features
 
-
+/*
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,7 +87,7 @@ class Program
 
                                 switch (userAction1)
                                 {
-                                    // If user inputs in an Y for a Yes
+                                    // If user inputs in an Y for a Yes ====> FOR 2ND TWEET
                                     case "Y":
                                         Console.WriteLine("You enterred 'Y' for a Yes to upload another Tweet; Enter the Tweet you want to Add to your Feed");
 
@@ -380,6 +381,34 @@ class Program
                                                         }
                                                         break;
 
+                                                        case "D":
+                                                                        Console.WriteLine("Enter the Tweet Number you will like to delete");
+                                                                        string deleteSecondTweetAfter2 = Console.ReadLine();
+                                                                        int deleteSecondTweetAfter2Int = int.Parse(deleteSecondTweetAfter1);
+                                                                        tweetDictionary.Remove(deleteSecondTweetAfter2Int);
+
+
+                                                                        Console.WriteLine();
+                                                                        Console.WriteLine();
+                                                                        Console.WriteLine("All Tweets have been Deleted");
+                                                                        Console.WriteLine("Enter 'C' to go back to Main Menu or 'K' to Exit Application");
+                                                                        string userContinuesAfterDeletingLastTweet = Console.ReadLine().ToUpper();
+                                                                        switch (userContinuesAfterDeletingLastTweet)
+                                                                        {
+                                                                            case "C":
+                                                                                Main();
+                                                                                break;
+                                                                            case "K":
+                                                                                Console.Write($"Goodbye {userName}");
+                                                                                break;
+
+                                                                            default:
+                                                                                Console.WriteLine($"Dear {userName} Zana didn't get that, Please Try again");
+                                                                                Main();
+                                                                                break;
+                                                                        }
+                                                                        break;
+
 
                                                     default:
                                                         Console.WriteLine($"Dear {userName} Zana didn't get that, Please Try again");
@@ -578,3 +607,4 @@ class Program
         }
     }
 }
+*/
