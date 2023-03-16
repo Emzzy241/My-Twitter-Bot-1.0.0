@@ -135,7 +135,7 @@ class MyProgram
 
                                 if (myUserAnswer5 == "Y")
                                 {
-                                    Console.WriteLine($"Dear {myUserName}Enter the Fifth Tweet you want to add to your timeline");
+                                    Console.WriteLine($"Dear {myUserName} Enter the Fifth Tweet you want to add to your timeline");
                                     string myUserFifthTweet = Console.ReadLine();
                                     Console.WriteLine();
                                     Console.WriteLine();
@@ -233,6 +233,9 @@ class MyProgram
 
                                                 tweetDictionary.Remove(thirdTweetToDeleteInt);
 
+                                                Console.WriteLine($"The Tweet with Number {thirdTweetToDeleteInt} has been deleted");
+
+
 
                                                 Console.WriteLine("Enter 'M' If you would like to delete another Tweet or Enter 'N' to quit the Application");
 
@@ -275,11 +278,23 @@ class MyProgram
                                                             Console.WriteLine($"{myUserName} added the Tweet: '{forEveryTweet.Value}', Zana says it was your number {forEveryTweet.Key} Tweet");
                                                         }
 
+                                                        Console.WriteLine("Enter the Tweet Number you want to delete");
+                                                        string fifthTweetToDelete = Console.ReadLine();
+                                                        int fifthTweetToDeleteInt = int.Parse(fifthTweetToDelete);
+
+                                                        tweetDictionary.Remove(fifthTweetToDeleteInt);
+                                                        Console.WriteLine($"The Tweet with Number {fifthTweetToDeleteInt} has been deleted");
+
+                                                        Console.WriteLine("Enter 'M' If you would like to delete another Tweet or Enter 'N' to quit the Application");
+
+                                                        string userContinueAfterDeletingFifthTweet = Console.ReadLine().ToUpper();
+
+
+
                                                         // NO MORE TWEETS LEFT AND APPLICATION ENDS(with user adding 5 tweets)
                                                         Console.WriteLine($"{myUserName} There are no more Tweets, Enter 'B' If you would like to go back to Main Menu or Enter 'F' to exit Application");
 
-                                                        string userContinueAfterDeletingFifthTweet = Console.ReadLine().ToUpper();
-                                                        if (userContinueAfterDeletingFifthTweet == "B")
+                                                         if (userContinueAfterDeletingFifthTweet == "B")
                                                         {
                                                             Console.WriteLine();
                                                             Console.WriteLine();
