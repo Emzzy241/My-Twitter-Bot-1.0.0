@@ -147,15 +147,18 @@ class MyProgram
                                     Console.WriteLine();
 
                                     // Final message to my user
-                                    Console.WriteLine("Would you like to see all tweets on your timeline? Enter 'Y' for Yes and 'N' to quit Application");
+                                    Console.WriteLine("Would you like to see all tweets on your timeline? Enter 'Y' for Yes and 'D' to delete any tweet from your timeline");
                                     string seeAllTweets = Console.ReadLine();
 
                                     // a final branch for my user
                                     if (seeAllTweets == "Y")
                                     {
-
-                                    }
                                     Console.WriteLine("Here are all the Tweets you have on your timeline");
+                                        
+                                    }
+                                    else if(seeAllTweets == "D"){
+                                        
+                                    }
 
 
                                 }
@@ -273,6 +276,11 @@ class MyProgram
                                             int thirdTweetToDeleteInt = int.Parse(thirdTweetToDelete);
 
                                             tweetDictionary.Remove(thirdTweetToDeleteInt);
+
+
+                                            Console.WriteLine("Enter 'M' If you would like to delete another Tweet or Enter 'N' to quit the Application");
+
+                                            string deleteTweetFourthTimeAfterFourthTweetAdded = Console.ReadLine().ToUpper();
 
 
 
