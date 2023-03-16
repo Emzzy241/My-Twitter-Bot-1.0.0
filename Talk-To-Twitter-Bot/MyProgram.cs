@@ -213,9 +213,9 @@ class MyProgram
 
                                             Console.WriteLine("Enter 'M' If you would like to delete another Tweet or Enter 'N' to quit the Application");
 
-                                            string deleteTweetThirdTimeAfterFourthTweetAdded = Console.ReadLine().ToUpper();
+                                            string deleteTweetThirdTimeAfterFifthTweetAdded = Console.ReadLine().ToUpper();
 
-                                            if (deleteTweetThirdTimeAfterFourthTweetAdded == "M")
+                                            if (deleteTweetThirdTimeAfterFifthTweetAdded == "M")
                                             {
                                                 Console.WriteLine($"{myUserName}'s remaining Tweets are: ");
                                                 Console.WriteLine();
@@ -225,7 +225,7 @@ class MyProgram
                                                     Console.WriteLine($"{myUserName} added the Tweet: '{forEveryTweet.Value}', Zana says it was your number {forEveryTweet.Key} Tweet");
                                                 }
 
-                                                // deleting third tweet after 4 tweets have been added
+                                                // deleting fourth tweet after 5 tweets have been added
 
                                                 Console.WriteLine("Enter the Tweet Number you want to delete");
                                                 string thirdTweetToDelete = Console.ReadLine();
@@ -236,11 +236,11 @@ class MyProgram
 
                                                 Console.WriteLine("Enter 'M' If you would like to delete another Tweet or Enter 'N' to quit the Application");
 
-                                                string deleteTweetFourthTimeAfterFourthTweetAdded = Console.ReadLine().ToUpper();
+                                                string deleteTweetFourthTimeAfterFifthTweetAdded = Console.ReadLine().ToUpper();
 
 
 
-                                                if (deleteTweetThirdTimeAfterFourthTweetAdded == "M")
+                                                if (deleteTweetFourthTimeAfterFifthTweetAdded == "M")
                                                 {
                                                     Console.WriteLine($"{myUserName}'s remaining Tweets are: ");
                                                     Console.WriteLine();
@@ -261,11 +261,11 @@ class MyProgram
 
                                                     Console.WriteLine("Enter 'M' If you would like to delete another Tweet or Enter 'N' to quit the Application");
 
-                                                    string deleteTweetFourthTimeAfterFifthTweetAdded = Console.ReadLine().ToUpper();
+                                                    string deleteTweetFifthTimeAfterFifthTweetAdded = Console.ReadLine().ToUpper();
 
 
 
-                                                    if (deleteTweetFourthTimeAfterFifthTweetAdded == "M")
+                                                    if (deleteTweetFifthTimeAfterFifthTweetAdded == "M")
                                                     {
                                                         Console.WriteLine($"{myUserName}'s remaining Tweets are: ");
                                                         Console.WriteLine();
@@ -275,37 +275,38 @@ class MyProgram
                                                             Console.WriteLine($"{myUserName} added the Tweet: '{forEveryTweet.Value}', Zana says it was your number {forEveryTweet.Key} Tweet");
                                                         }
 
-                                                        // NO MORE TWEETS LEFT AND APPLICATION ENDS(with user adding 5 tweet)
+                                                        // NO MORE TWEETS LEFT AND APPLICATION ENDS(with user adding 5 tweets)
+                                                        Console.WriteLine($"{myUserName} There are no more Tweets, Enter 'B' If you would like to go back to Main Menu or Enter 'F' to exit Application");
+
+                                                        string userContinueAfterDeletingFifthTweet = Console.ReadLine().ToUpper();
+                                                        if (userContinueAfterDeletingFifthTweet == "B")
+                                                        {
+                                                            Console.WriteLine();
+                                                            Console.WriteLine();
+                                                            // Calling my Main() method entry-point that takes my user to the start of my Application
+                                                            Main();
+                                                        }
+                                                        else if (userContinueAfterDeletingFifthTweet == "F")
+                                                        {
+                                                            Console.WriteLine();
+                                                            Console.WriteLine();
+                                                            Console.WriteLine($"Goodbye {myUserName}");
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.WriteLine();
+                                                            Console.WriteLine();
+                                                            Console.WriteLine($"Sorry {myUserName}, Zana didn't get that");
+                                                            Main();
+                                                        }
+
                                                     }
 
-                                                    // Console.WriteLine($"{myUserName} There are no more Tweets, Enter 'B' If you would like to go back to Main Menu or Enter 'F' to exit Application");
-
-                                                    // string userContinueAfterDeletingFourthTweet = Console.ReadLine().ToUpper();
-                                                    // if (userContinueAfterDeletingFourthTweet == "B")
-                                                    // {
-                                                    //     Console.WriteLine();
-                                                    //     Console.WriteLine();
-                                                    //     // Calling my Main() method entry-point that takes my user to the start of my Application
-                                                    //     Main();
-                                                    // }
-                                                    // else if (userContinueAfterDeletingFourthTweet == "F")
-                                                    // {
-                                                    //     Console.WriteLine();
-                                                    //     Console.WriteLine();
-                                                    //     Console.WriteLine($"Goodbye {myUserName}");
-                                                    // }
-                                                    // else
-                                                    // {
-                                                    //     Console.WriteLine();
-                                                    //     Console.WriteLine();
-                                                    //     Console.WriteLine($"Sorry {myUserName}, Zana didn't get that");
-                                                    //     Main();
-                                                    // }
 
                                                 }
 
                                             }
-                                            else if (deleteTweetThirdTimeAfterFourthTweetAdded == "C")
+                                            else if (deleteTweetThirdTimeAfterFifthTweetAdded == "C")
                                             {
                                                 Console.WriteLine();
                                                 Console.WriteLine();
