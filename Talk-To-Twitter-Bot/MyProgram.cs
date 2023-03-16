@@ -148,7 +148,7 @@ class MyProgram
 
                                     // Final message to my user
                                     Console.WriteLine("Would you like to see all tweets on your timeline? Enter 'Y' for Yes and 'D' to delete any tweet from your timeline");
-                                    string seeAllTweets = Console.ReadLine();
+                                    string seeAllTweets = Console.ReadLine().ToUpper();
 
                                     // a final branch for my user
                                     if (seeAllTweets == "Y")
@@ -285,15 +285,10 @@ class MyProgram
                                                         tweetDictionary.Remove(fifthTweetToDeleteInt);
                                                         Console.WriteLine($"The Tweet with Number {fifthTweetToDeleteInt} has been deleted");
 
-                                                        Console.WriteLine("Enter 'M' If you would like to delete another Tweet or Enter 'N' to quit the Application");
-
-                                                        string userContinueAfterDeletingFifthTweet = Console.ReadLine().ToUpper();
-
-
-
                                                         // NO MORE TWEETS LEFT AND APPLICATION ENDS(with user adding 5 tweets)
                                                         Console.WriteLine($"{myUserName} There are no more Tweets, Enter 'B' If you would like to go back to Main Menu or Enter 'F' to exit Application");
 
+                                                        string userContinueAfterDeletingFifthTweet = Console.ReadLine().ToUpper();
                                                          if (userContinueAfterDeletingFifthTweet == "B")
                                                         {
                                                             Console.WriteLine();
